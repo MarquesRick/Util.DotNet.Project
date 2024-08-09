@@ -5,11 +5,11 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StructuralPattern", "StructuralPattern", "{611DEE28-C6D6-40EF-95FA-4092E9F32AA0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facade.Design.Pattern", "StructuralDesign\Facade.Design.Pattern\Facade.Design.Pattern.csproj", "{59A9360A-C47B-40CD-A0EF-4D817789ED8B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreationalPattern", "CreationalPattern", "{417D5E6E-144A-470B-BEAB-98AB1EC343E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryMethod.Design.Pattern", "CreationalPattern\FactoryMethod.Design.Pattern\FactoryMethod.Design.Pattern.csproj", "{7FCDDF23-8951-4C17-9C7F-D53BE587A257}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FactoryMethod.Design.Pattern", "CreationalPattern\FactoryMethod.Design.Pattern\FactoryMethod.Design.Pattern.csproj", "{7FCDDF23-8951-4C17-9C7F-D53BE587A257}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facade.Design.Pattern", "StructuralPattern\Facade.Design.Pattern\Facade.Design.Pattern.csproj", "{3E2FD58E-7F76-421D-B23D-F90CB96B4C3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,21 +17,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{59A9360A-C47B-40CD-A0EF-4D817789ED8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59A9360A-C47B-40CD-A0EF-4D817789ED8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59A9360A-C47B-40CD-A0EF-4D817789ED8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59A9360A-C47B-40CD-A0EF-4D817789ED8B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7FCDDF23-8951-4C17-9C7F-D53BE587A257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7FCDDF23-8951-4C17-9C7F-D53BE587A257}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FCDDF23-8951-4C17-9C7F-D53BE587A257}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FCDDF23-8951-4C17-9C7F-D53BE587A257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E2FD58E-7F76-421D-B23D-F90CB96B4C3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E2FD58E-7F76-421D-B23D-F90CB96B4C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E2FD58E-7F76-421D-B23D-F90CB96B4C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E2FD58E-7F76-421D-B23D-F90CB96B4C3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{59A9360A-C47B-40CD-A0EF-4D817789ED8B} = {611DEE28-C6D6-40EF-95FA-4092E9F32AA0}
 		{7FCDDF23-8951-4C17-9C7F-D53BE587A257} = {417D5E6E-144A-470B-BEAB-98AB1EC343E0}
+		{3E2FD58E-7F76-421D-B23D-F90CB96B4C3F} = {611DEE28-C6D6-40EF-95FA-4092E9F32AA0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E4703F98-2701-4548-8E8F-EB780E0E71C4}
