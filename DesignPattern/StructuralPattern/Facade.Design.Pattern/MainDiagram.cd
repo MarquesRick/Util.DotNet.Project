@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+  <Comment CommentText="INTERFACES">
+    <Position X="8.74" Y="0.531" Height="0.291" Width="1.085" />
+  </Comment>
+  <Class Name="Facade.Design.Pattern.Facade.RestaurantFacade">
+    <Position X="0.75" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAABAAAAAAAAAAACABAAAAAQAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Facade\RestaurantFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Facade.Design.Pattern.Implementation.BreadSupplier">
+    <Position X="3.5" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAEAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Implementation\BreadSupplier.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Facade.Design.Pattern.Implementation.PizzaSupplier">
+    <Position X="6.75" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Implementation\PizzaSupplier.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Object">
+    <Position X="3" Y="0.5" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="Facade.Design.Pattern.Interfaces.IBread">
+    <Position X="7.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IBread.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Facade.Design.Pattern.Interfaces.IPizza">
+    <Position X="9.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Interfaces\IPizza.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
