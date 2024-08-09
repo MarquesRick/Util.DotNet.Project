@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StructuralDesign", "StructuralDesign", "{611DEE28-C6D6-40EF-95FA-4092E9F32AA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facade.Design.Pattern", "StructuralDesign\Facade.Design.Pattern\Facade.Design.Pattern.csproj", "{59A9360A-C47B-40CD-A0EF-4D817789ED8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59A9360A-C47B-40CD-A0EF-4D817789ED8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59A9360A-C47B-40CD-A0EF-4D817789ED8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59A9360A-C47B-40CD-A0EF-4D817789ED8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59A9360A-C47B-40CD-A0EF-4D817789ED8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{59A9360A-C47B-40CD-A0EF-4D817789ED8B} = {611DEE28-C6D6-40EF-95FA-4092E9F32AA0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4703F98-2701-4548-8E8F-EB780E0E71C4}
+	EndGlobalSection
+EndGlobal
