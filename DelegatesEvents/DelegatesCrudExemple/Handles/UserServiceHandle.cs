@@ -5,13 +5,22 @@ namespace DelegatesCrudExemple.Handles
 {
     public class UserServiceHandle
     {
+
         // Define the delegate
         public delegate void UserEventHandler(object sender, UserEventArgs e);
 
         // Define the events
         public event UserEventHandler UserValidating;
 
+        public string ServiceName { get; private set; }
+        public UserServiceHandle(string serviceName)
+        {
+            ServiceName = serviceName;
+        }
+
         private readonly Dictionary<int, User> _users = new Dictionary<int, User>();
+
+
 
         // Method to invoke validation
         protected virtual void OnUserValidating(UserEventArgs e)

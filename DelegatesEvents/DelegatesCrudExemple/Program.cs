@@ -2,7 +2,7 @@
 using DelegatesCrudExemple.Handles;
 using DelegatesCrudExemple.Validator;
 
-UserServiceHandle userService = new();
+UserServiceHandle userService = new("service1");
 UserValidator validator = new();
 
 // Subscribe to the UserValidating event

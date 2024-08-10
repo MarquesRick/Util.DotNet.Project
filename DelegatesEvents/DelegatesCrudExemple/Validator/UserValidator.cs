@@ -1,4 +1,5 @@
 ﻿using DelegatesCrudExemple.Events;
+using DelegatesCrudExemple.Handles;
 
 namespace DelegatesCrudExemple.Validator
 {
@@ -6,6 +7,13 @@ namespace DelegatesCrudExemple.Validator
     {
         public void ValidateUser(object sender, UserEventArgs e)
         {
+            //sender used to obtain more information about the service that identifies the source of the event
+            var userService = sender as UserServiceHandle;
+            if (userService != null)
+            {
+                Console.WriteLine($"Validation performed by: {userService.ServiceName}");
+            }
+
             if (string.IsNullOrWhiteSpace(e.User.Name))
             {
                 e.IsValid = false;
