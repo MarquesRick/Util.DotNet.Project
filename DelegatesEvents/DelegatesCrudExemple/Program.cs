@@ -1,19 +1,26 @@
 ﻿using DelegatesCrudExemple.Entities;
 using DelegatesCrudExemple.Handles;
+using DelegatesCrudExemple.Validator;
 
 UserServiceHandle userService = new();
+UserValidator validator = new();
 
-User user1 = new() { Id = 1, Name = "John Doe", Email = "john@example.com" };
-User user2 = new() { Id = 2, Name = "Jane Smith", Email = "jane@example" };
-User user4 = new() { Id = 3, Name = "Henrique Marques", Email = "henmarques.com" }; // Invalid email
+// Subscribe to the UserValidating event
+userService.UserValidating += validator.ValidateUser;
+
+// Create users
+User user1 = new(1, "John Doe", "john@example.com");
+User user2 = new(2, "", "jane@example.com"); // Invalid name
+User user3 = new(3, "Jane Smith", "janeexample.com"); // Invalid email
 
 // Insert users
-userService.InsertUser(user1);
-userService.InsertUser(user2);
-userService.InsertUser(user4);
-// Update user
-User user3 = new() { Id = 1, Name = "John Updated", Email = "johnupdated@example.com" };
-userService.UpdateUser(user3);
+userService.InsertUser(user1); // Valid user
+userService.InsertUser(user2); // Invalid user
+userService.InsertUser(user3); // Invalid user
 
-// Delete user
-userService.DeleteUser(1);
+// Update users
+User updatedUser1 = new(1, "John Updated", "johnupdated@example.com");
+userService.UpdateUser(updatedUser1); // Valid update
+
+User invalidUpdateUser = new(1, "", "johnupdated@example.com");
+userService.UpdateUser(invalidUpdateUser); // Invalid update

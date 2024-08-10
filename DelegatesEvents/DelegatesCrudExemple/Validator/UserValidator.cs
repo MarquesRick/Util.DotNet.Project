@@ -1,53 +1,21 @@
-﻿using DelegatesCrudExemple.Entities;
+﻿using DelegatesCrudExemple.Events;
 
 namespace DelegatesCrudExemple.Validator
 {
     public class UserValidator
     {
-        public delegate void ValidationHandler(object sender, ValidationEventArgs e);
-
-        public event ValidationHandler UserValidation;
-
-        protected virtual void OnUserValidation(ValidationEventArgs e)
+        public void ValidateUser(object sender, UserEventArgs e)
         {
-            UserValidation?.Invoke(this, e);
-        }
-
-        public void ValidateUser(User user)
-        {
-            if (string.IsNullOrWhiteSpace(user.Name))
+            if (string.IsNullOrWhiteSpace(e.User.Name))
             {
-                OnUserValidation(new ValidationEventArgs("User name cannot be empty."));
+                e.IsValid = false;
+                e.ErrorMessage = "User name cannot be empty.";
             }
-
-            if (!IsValidEmail(user.Email))
+            else if (string.IsNullOrWhiteSpace(e.User.Email) || !e.User.Email.Contains("@"))
             {
-                OnUserValidation(new ValidationEventArgs("User email is invalid."));
-            }
-        }
-
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
+                e.IsValid = false;
+                e.ErrorMessage = "Invalid email address.";
             }
         }
     }
-
-    public class ValidationEventArgs : EventArgs
-    {
-        public string Message { get; }
-
-        public ValidationEventArgs(string message)
-        {
-            Message = message;
-        }
-    }
-
 }

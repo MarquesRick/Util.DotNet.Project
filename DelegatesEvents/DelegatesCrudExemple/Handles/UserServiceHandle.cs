@@ -1,58 +1,77 @@
 ﻿using DelegatesCrudExemple.Entities;
-using DelegatesCrudExemple.Validator;
+using DelegatesCrudExemple.Events;
 
 namespace DelegatesCrudExemple.Handles
 {
     public class UserServiceHandle
     {
-        private readonly UserValidator _userValidator = new UserValidator();
-        private readonly List<User> _users = new List<User>();
+        // Define the delegate
+        public delegate void UserEventHandler(object sender, UserEventArgs e);
 
-        public UserServiceHandle()
+        // Define the events
+        public event UserEventHandler UserValidating;
+
+        private readonly Dictionary<int, User> _users = new Dictionary<int, User>();
+
+        // Method to invoke validation
+        protected virtual void OnUserValidating(UserEventArgs e)
         {
-            _userValidator.UserValidation += OnUserValidation;
+            UserValidating?.Invoke(this, e);
         }
 
+        // Insert user
         public void InsertUser(User user)
         {
-            _userValidator.ValidateUser(user);
-            _users.Add(user);
-            Console.WriteLine($"User {user.Name} inserted.");
+            var args = new UserEventArgs(user);
+            OnUserValidating(args);
+
+            if (args.IsValid)
+            {
+                _users[user.Id] = user;
+                Console.WriteLine($"User {user.Name} inserted.");
+            }
+            else
+            {
+                Console.WriteLine($"Failed to insert user: {args.ErrorMessage}");
+            }
         }
 
+        // Update user
         public void UpdateUser(User user)
         {
-            _userValidator.ValidateUser(user);
-            var existingUser = _users.Find(u => u.Id == user.Id);
-            if (existingUser != null)
+            var args = new UserEventArgs(user);
+            OnUserValidating(args);
+
+            if (args.IsValid)
             {
-                existingUser.Name = user.Name;
-                existingUser.Email = user.Email;
+                _users[user.Id] = user;
                 Console.WriteLine($"User {user.Name} updated.");
             }
             else
             {
-                Console.WriteLine("User not found.");
+                Console.WriteLine($"Failed to update user: {args.ErrorMessage}");
             }
         }
 
+        // Delete user
         public void DeleteUser(int userId)
         {
-            var user = _users.Find(u => u.Id == userId);
-            if (user != null)
+            if (_users.ContainsKey(userId))
             {
-                _users.Remove(user);
-                Console.WriteLine($"User {user.Name} deleted.");
+                _users.Remove(userId);
+                Console.WriteLine($"User with ID {userId} deleted.");
             }
             else
             {
-                Console.WriteLine("User not found.");
+                Console.WriteLine($"User with ID {userId} does not exist.");
             }
         }
 
-        private void OnUserValidation(object sender, ValidationEventArgs e)
+        // Get user by ID
+        public User GetUserById(int userId)
         {
-            Console.WriteLine($"Validation Error: {e.Message}");
+            _users.TryGetValue(userId, out var user);
+            return user;
         }
     }
 }
