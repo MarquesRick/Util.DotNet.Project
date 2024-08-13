@@ -1,0 +1,11 @@
+@Host = http://localhost:5032
+
+POST {{Host}}/cars
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "Ferrari"
+}
+
+###
