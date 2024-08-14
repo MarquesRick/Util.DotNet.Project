@@ -23,6 +23,21 @@ app.UseHttpsRedirection();
 app.MapPost("/cars", async ([FromBody] RegisterCarRequest req, ICarService service, CancellationToken ct) =>
 {
     var carResult = await service.AddCar(req.Name, ct);
+
+    /*With match*/
+    return carResult.Match(
+        car => Results.Created($"cars/{car.Id}", car),
+        error =>
+        {
+            if (error.ErrorType == ResultPatternOneOf.Application.Errors.ErrorType.BusinessRule)
+                return Results.Conflict(error);
+
+            return Results.BadRequest(error);
+        });
+
+
+
+    /* Without Match
     if (carResult.IsSuccess())
     {
         var car = carResult.GetSuccessResult();
@@ -35,6 +50,7 @@ app.MapPost("/cars", async ([FromBody] RegisterCarRequest req, ICarService servi
         return Results.Conflict(errorObj);
 
     return Results.BadRequest(errorObj);
+    */
 
 });
 
