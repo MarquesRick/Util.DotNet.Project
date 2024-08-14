@@ -23,14 +23,14 @@ app.UseHttpsRedirection();
 app.MapPost("/cars", async ([FromBody] RegisterCarRequest req, ICarService service, CancellationToken ct) =>
 {
     var carResult = await service.AddCar(req.Name, ct);
-    if (carResult.IsT0)
+    if (carResult.IsSuccess())
     {
-        var car = carResult.AsT0;
+        var car = carResult.GetSuccessResult();
         return Results.Created($"cars/{car.Id}", car);
     }
 
     // in case of errors
-    var errorObj = carResult.AsT1;
+    var errorObj = carResult.GetErrorResult();
     if (errorObj.ErrorType == ResultPatternOneOf.Application.Errors.ErrorType.BusinessRule)
         return Results.Conflict(errorObj);
 
