@@ -4,7 +4,7 @@
     for insertion, deletion, and lookup.
 */
 
-class Leaderboard
+class LeaderboardSortedDictionary
 {
     /*
         Instead of using a List<string> for player names, 
@@ -14,7 +14,7 @@ class Leaderboard
     private SortedDictionary<int, HashSet<string>> scores;
     private Dictionary<string, int> playerScores;
 
-    public Leaderboard()
+    public LeaderboardSortedDictionary()
     {
         scores = new SortedDictionary<int, HashSet<string>>(Comparer<int>.Create((a, b) => b.CompareTo(a)));
         playerScores = [];
