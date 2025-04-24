@@ -8,7 +8,7 @@ public class SortingBenchmark
     private int[] _data;
     private int[] _backup;
 
-    [Params(1000, 5000)] // ajuste os tamanhos como preferir
+    [Params(1000, 5000)]
     public int Size;
 
     [GlobalSetup]
@@ -32,4 +32,7 @@ public class SortingBenchmark
 
     [Benchmark]
     public void QuickSort() => SampleExample.SortingMethods.QuickSort.Build(_data).Sort();
+
+    [Benchmark]
+    public void MergeSort() => SampleExample.SortingMethods.MergeSort.Build(_data).Sort();
 }

@@ -15,6 +15,7 @@ Console.WriteLine($"Before ordination: [{string.Join(", ", arrExample)}]");
 ExecuteSort("Bubble Sort", BubbleSort.Build, arrExample);
 ExecuteSort("Selection Sort", SelectionSort.Build, arrExample);
 ExecuteSort("Quick Sort", QuickSort.Build, arrExample);
+ExecuteSort("Merge Sort", MergeSort.Build, arrExample);
 
 
 static void ExecuteSort(string name, Func<int[], ISorter> sortBuilder, List<int> source)
