@@ -1,0 +1,11 @@
+### Enviar novo item
+POST http://localhost:5003/publish
+Content-Type: application/json
+
+{
+  "Topic": "item.new",
+  "Message": {
+    "Nome": "Novo Item",
+    "Preco": "2.55"
+  }
+}
